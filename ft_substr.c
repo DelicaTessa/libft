@@ -1,17 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memset.c                                        :+:    :+:            */
+/*   ft_substr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/04/07 09:26:48 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/07 09:26:48 by tclement      ########   odam.nl         */
+/*   Created: 2020/04/13 13:29:22 by tclement      #+#    #+#                 */
+/*   Updated: 2020/04/13 13:30:54 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <libft.h>
+#include <stddef.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+char *ft_substr(char const *s, unsigned int start,size_t len)
 {
 
+}
