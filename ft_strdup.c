@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/10 14:17:53 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/14 13:49:41 by tclement      ########   odam.nl         */
+/*   Updated: 2020/04/15 10:21:20 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *src)
 {
 	int		index;
 	char	*dest;

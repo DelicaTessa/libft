@@ -1,33 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlen.c                                        :+:    :+:            */
+/*   ft_memccpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/04/10 12:50:30 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/15 11:06:13 by tclement      ########   odam.nl         */
+/*   Created: 2020/04/15 10:26:57 by tclement      #+#    #+#                 */
+/*   Updated: 2020/04/16 09:53:24 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <stdio.h>
 
-size_t	ft_strlen(const char *s)
+void 		*ft_memccpy(void *s1, const void *s2, int c, size_t n)
 {
-	size_t len;
+	size_t			index;
+	unsigned char	ch;
+	unsigned char	*dest;
+	unsigned char	*src;
 
-	len = 0;
-	while (s[len] != '\0')
+	index = 0;
+	ch = (unsigned char)c;
+	dest = (unsigned char *)s1;
+	src = (unsigned char *)s2;
+	printf("%s", dest);
+	while(index < n)
 	{
-		len++;
+		dest[index] = src[index];
+		if (dest[index] == ch)
+			return (dest + index + 1);
+		index++;
 	}
-	return (len);
+	printf("%s", dest);
+	return (NULL);
 }
 
 int main(void)
 {
 	char str1[] = "draak";
-	printf("%ld", ft_strlen(str1));
+	char str2[] = "drogg";
+	int c;
+	c = 'g';
+	ft_memccpy(str1, str2, c, 4);
 	return (0);
 }

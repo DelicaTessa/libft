@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlen.c                                        :+:    :+:            */
+/*   ft_strchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/04/10 12:50:30 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/15 11:06:13 by tclement      ########   odam.nl         */
+/*   Created: 2020/04/14 21:08:12 by tclement      #+#    #+#                 */
+/*   Updated: 2020/04/15 10:51:04 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include <stdio.h>
 
-size_t	ft_strlen(const char *s)
+char 		*ft_strchr(const char *s, int c)
 {
-	size_t len;
+	int	index;
 
-	len = 0;
-	while (s[len] != '\0')
+	index = 0;
+	while (s[index] != '\0')
 	{
-		len++;
+		if (s[index] == c)
+			return ((char *)s + index);
+		index++;
 	}
-	return (len);
+	return (NULL);
 }
 
 int main(void)
 {
-	char str1[] = "draak";
-	printf("%ld", ft_strlen(str1));
+	
+	int c;
+
+	char str[] = "ik heb een draak";
+	 c = 'z';
+
+	printf("%s", ft_strchr(str, c));
 	return (0);
 }

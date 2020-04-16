@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/14 14:03:52 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/14 14:15:37 by tclement      ########   odam.nl         */
+/*   Updated: 2020/04/15 09:09:38 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_atoi(const char *str)
 
 	value = 0;
 	sign = 1;
-	if (*str == 43 || *str == 45)
+	if (*str == 43 || *str == 45 || *str == 32)
 	{
 		if (*str == 45)
 		{
@@ -38,16 +38,13 @@ int	ft_atoi(const char *str)
 	return (value * sign);
 }
 
-int main()
+int main(void)
 {
-  char a[] = "abc120a";
-  int b;
-  int c;
+  char *a = " 123";
+  int  b;
 
-  b = ft_atoi(a);
-  c = atoi(a);
-  printf("%d", b);
-  printf("%d", c);
+ printf("%d\n", ft_atoi(a));
+ printf("%d", atoi(a));
 
   return (0);
 }
