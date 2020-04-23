@@ -6,12 +6,11 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/10 12:50:30 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/15 11:06:13 by tclement      ########   odam.nl         */
+/*   Updated: 2020/04/21 11:21:16 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <stdio.h>
 
 size_t	ft_strlen(const char *s)
 {
@@ -23,11 +22,4 @@ size_t	ft_strlen(const char *s)
 		len++;
 	}
 	return (len);
-}
-
-int main(void)
-{
-	char str1[] = "draak";
-	printf("%ld", ft_strlen(str1));
-	return (0);
 }

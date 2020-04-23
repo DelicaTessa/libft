@@ -6,12 +6,11 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 08:28:43 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/15 11:05:54 by tclement      ########   odam.nl         */
+/*   Updated: 2020/04/21 10:16:35 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <stdio.h>
 
 char		*ft_strrchr(const char *s, int c)
 {
@@ -27,16 +26,4 @@ char		*ft_strrchr(const char *s, int c)
 		len--;
 	}
 	return (NULL);
-}
-
-int main(void)
-{
-	
-	int c;
-
-	char str[] = "ik heb een draak";
-	 c = 'e';
-
-	printf("%s", ft_strrchr(str, c));
-	return (0);
 }

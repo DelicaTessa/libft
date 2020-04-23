@@ -6,13 +6,11 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/14 14:03:52 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/15 09:09:38 by tclement      ########   odam.nl         */
+/*   Updated: 2020/04/21 09:56:29 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <libft.h>
-#include <stdlib.h>
 
 int	ft_atoi(const char *str)
 {
@@ -36,15 +34,4 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	return (value * sign);
-}
-
-int main(void)
-{
-  char *a = " 123";
-  int  b;
-
- printf("%d\n", ft_atoi(a));
- printf("%d", atoi(a));
-
-  return (0);
 }

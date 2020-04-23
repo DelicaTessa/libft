@@ -6,14 +6,13 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/14 21:08:12 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/15 10:51:04 by tclement      ########   odam.nl         */
+/*   Updated: 2020/04/21 11:23:18 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <stdio.h>
 
-char 		*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int	index;
 
@@ -25,16 +24,4 @@ char 		*ft_strchr(const char *s, int c)
 		index++;
 	}
 	return (NULL);
-}
-
-int main(void)
-{
-	
-	int c;
-
-	char str[] = "ik heb een draak";
-	 c = 'z';
-
-	printf("%s", ft_strchr(str, c));
-	return (0);
 }

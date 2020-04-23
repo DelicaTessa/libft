@@ -6,27 +6,27 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/14 19:14:41 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/15 18:53:07 by tclement      ########   odam.nl         */
+/*   Updated: 2020/04/21 10:16:07 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <stdio.h>
 
 char		*ft_strnstr(const char	*haystack, const char *needle, size_t len)
 {
-	size_t	i;
-	size_t	j;
+	size_t	index;
+	size_t	counter;
 
-	i = 0;
-	while (i < n && s1[i] != '\0')
+	index = 0;
+	counter = 0;
+	while (index < len && haystack[index] != '\0')
 	{
-		j = 0;
-		while (i + j < n && s1[i + j] == s2[j] && s2[j] != '\0')
-			j++;
-		if (s2[j] == '\0')
-			return ((char *)s1 + i);
-		i++;
+		while (index + counter < len && haystack[index + counter] == needle[counter] 
+		&& needle[counter] != '\0')
+			counter++;
+		if (needle[counter] == '\0')
+			return ((char *)haystack + index);
+		index++;
 	}
 	return (NULL);
 }
