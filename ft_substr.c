@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 13:29:22 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/03 13:27:26 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/03 13:59:50 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	{
 		return (NULL);
 	}
-	while (index < len)
+	while (index < len && s[index] != '\0')
 	{
 		sub[index] = s[start];
 		index++;
