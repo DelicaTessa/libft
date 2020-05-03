@@ -6,11 +6,11 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/10 12:50:30 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/21 11:21:16 by tclement      ########   odam.nl         */
+/*   Updated: 2020/04/24 10:06:26 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

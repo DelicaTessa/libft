@@ -6,27 +6,34 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 10:27:48 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/21 12:12:29 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/01 15:30:49 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
 void	*ft_memmove(void *s1, const void *s2, size_t n)
 {
-	size_t			index;
 	unsigned char	*dest;
 	unsigned char	*src;
-	unsigned char	*temp;
+	size_t			index;
 
+	dest = (unsigned char*)s1;
+	src = (unsigned char*)s2;
 	index = 0;
-	dest = (unsigned char *)s1;
-	src = (unsigned char *)s2;
-	temp = src;
-	while (index < n)
+	if (s1 == NULL && s2 == NULL && n > 0)
+		return (NULL);
+	else if (dest < src)
+		ft_memcpy(dest, src, n);
+	else
 	{
-		dest = temp;
-		index++;
+		while (n > 0)
+		{
+			dest[n - 1] = src[n - 1];
+			n--;
+		}
 	}
 	return (dest);
 }

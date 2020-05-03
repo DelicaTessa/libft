@@ -6,28 +6,28 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/10 13:58:07 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/21 11:10:35 by tclement      ########   odam.nl         */
+/*   Updated: 2020/04/26 11:44:22 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t index;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	index = 0;
-	if (n == 0)
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while (n > 0)
 	{
-		return (0);
-	}
-	while (index < n)
-	{
-		if (s1[index] != s2[index])
-		{
-			return (s1[index] - s2[index]);
-		}
-		index++;
+		if (*str1 != *str2)
+			return (*str1 - *str2);
+		if (!*str1 && *str1 == *str2)
+			return (0);
+		str1++;
+		str2++;
+		n--;
 	}
 	return (0);
 }

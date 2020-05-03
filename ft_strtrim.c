@@ -6,39 +6,48 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 13:33:22 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/21 19:18:41 by tclement      ########   odam.nl         */
+/*   Updated: 2020/04/28 14:24:33 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 #include <stdio.h>
+#include <string.h>
 
-char	*ft_ltrim(char *s1, const char *set)
+static	char	*ltrim(char const *s1, const char *set)
 {
-	int	index;
-	int len;
+	int		index;
+	int		len;
+	char	*str;
 
 	index = 0;
-	len = ft_strlen(s1) - 1;
-	while (index < len && ft_strchr(set, s1[index]) != NULL)
+	if (s1 == NULL)
+		return (NULL);
+	str = ft_strdup(s1);
+	if (str == NULL)
+		return (NULL);
+	len = ft_strlen(str);
+	while (index < len && ft_strchr(set, str[index]) != NULL)
 	{
 		index++;
 	}
-	return (s1 + index);
+	ft_strlcpy(str, str + index, len + 2);
+	return (str);
 }
 
-char	*ft_rtrim(const char *s1, const char *set)
+static	char	*rtrim(char const *s1, const char *set)
 {
 	char	*str;
 	int		index;
 
-	str = ft_strdup(s1);
-	index = 0;
-	if (set == NULL)
+	if (s1 == NULL)
 	{
-		set = "\t\n\v\f\r";
+		return (NULL);
 	}
-	index = ft_strlen(str) - 1;
+	str = ltrim(s1, set);
+	if (str == NULL)
+		return (NULL);
+	index = ft_strlen(str);
 	while (index >= 0 && ft_strchr(set, str[index]) != NULL)
 	{
 		str[index] = '\0';
@@ -47,7 +56,11 @@ char	*ft_rtrim(const char *s1, const char *set)
 	return (str);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char			*ft_strtrim(char const *s1, char const *set)
 {
-	return (ft_ltrim(ft_rtrim(s1, set), set));
+	if (s1 == NULL)
+	{
+		return (NULL);
+	}
+	return (ltrim(rtrim(s1, set), set));
 }

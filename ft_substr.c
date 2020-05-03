@@ -6,21 +6,20 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 13:29:22 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/21 10:17:30 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/03 13:27:26 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
 	size_t	index;
 
-	sub = (char *)malloc(sizeof(char) * len + 1);
+	sub = malloc(sizeof(char) * len + 1);
 	index = 0;
-	if (!(sub = (char *)malloc(sizeof(char) * len + 1)))
+	if (sub == NULL || s == NULL)
 	{
 		return (NULL);
 	}
