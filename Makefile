@@ -6,7 +6,7 @@
 #    By: tclement <tclement@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/04/24 10:42:28 by tclement      #+#    #+#                  #
-#    Updated: 2020/05/03 11:20:51 by tclement      ########   odam.nl          #
+#    Updated: 2020/05/06 15:13:05 by tclement      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC =    ft_memset.c \
+SRC =   ft_memset.c \
         ft_bzero.c \
         ft_memcpy.c \
         ft_memccpy.c \
@@ -53,13 +53,27 @@ SRC =    ft_memset.c \
 
 OBJ = $(SRC:.c=.o)
 
+BONUS = ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c \
+
+BONUS_OBJ = $(BONUS:.c=.o)
+
 HEADER = libft.h
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	ar rcs $@ $^
+
+bonus: $(BONUS_OBJ)
+	ar rcs $(NAME) $^
 
 %.o: %.c $(HEADER)
 	$(CC) -c $(CFLAGS) -o $@ $<

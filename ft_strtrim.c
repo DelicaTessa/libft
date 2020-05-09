@@ -6,61 +6,83 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 13:33:22 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/28 14:24:33 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/06 11:00:56 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-static	char	*ltrim(char const *s1, const char *set)
+static char		*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	int		index;
-	int		len;
-	char	*str;
+	size_t index;
 
 	index = 0;
-	if (s1 == NULL)
-		return (NULL);
-	str = ft_strdup(s1);
-	if (str == NULL)
-		return (NULL);
-	len = ft_strlen(str);
-	while (index < len && ft_strchr(set, str[index]) != NULL)
+	while (index < n)
 	{
+		dest[index] = src[index];
 		index++;
 	}
-	ft_strlcpy(str, str + index, len + 2);
-	return (str);
+	dest[index] = '\0';
+	return (dest);
 }
 
-static	char	*rtrim(char const *s1, const char *set)
+static int		ltrim(char const *s1, const char *set)
 {
-	char	*str;
-	int		index;
+	int	len;
+	int	start;
+
+	start = 0;
+	len = ft_strlen(s1);
+	if (s1 == NULL)
+		return (0);
+	while (start < len && ft_strchr(set, s1[start]) != NULL)
+	{
+		start++;
+	}
+	return (start);
+}
+
+static int		rtrim(char const *s1, const char *set)
+{
+	int stop;
+
+	stop = ft_strlen(s1);
+	if (s1 == NULL)
+		return (0);
+	while (stop >= 0 && ft_strchr(set, s1[stop]) != NULL)
+	{
+		stop--;
+	}
+	return (stop);
+}
+
+static char		*copystring(char const *s1, int start, int stop)
+{
+	char *str;
 
 	if (s1 == NULL)
-	{
 		return (NULL);
-	}
-	str = ltrim(s1, set);
+	if (start > stop)
+		return (ft_strdup(""));
+	str = (char *)malloc((stop - start) + 2 * sizeof(char));
 	if (str == NULL)
 		return (NULL);
-	index = ft_strlen(str);
-	while (index >= 0 && ft_strchr(set, str[index]) != NULL)
-	{
-		str[index] = '\0';
-		index--;
-	}
+	str = ft_strncpy(str, s1 + start, (stop - start) + 1);
 	return (str);
 }
 
 char			*ft_strtrim(char const *s1, char const *set)
 {
+	char	*str;
+	int		start;
+	int		stop;
+
 	if (s1 == NULL)
-	{
 		return (NULL);
-	}
-	return (ltrim(rtrim(s1, set), set));
+	start = ltrim(s1, set);
+	stop = rtrim(s1, set);
+	str = copystring(s1, start, stop);
+	if (str == NULL)
+		return (NULL);
+	return (str);
 }

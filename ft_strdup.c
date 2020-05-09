@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/10 14:17:53 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/03 13:25:52 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/05 09:31:03 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *src)
 	char	*dest;
 
 	index = 0;
-	dest = malloc(sizeof(char) * ft_strlen(src) + 1);
+	dest = (char *)malloc(sizeof(char) * ft_strlen(src) + 1);
 	if (dest == NULL)
 	{
 		return (NULL);

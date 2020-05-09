@@ -6,92 +6,97 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 13:34:22 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/03 13:28:15 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/09 10:10:08 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_wordcount(char const *s, char c)
+static int		wordcount(const char *s, int c)
 {
-	size_t	index;
-	size_t	wc;
+	int		index;
+	size_t	count;
 
+	count = 0;
 	index = 0;
-	wc = 0;
 	while (s[index] != '\0')
 	{
-		while (s[index] == c)
-			index++;
-		if (s[index] != '\0')
-			wc++;
-		while (s[index] != c && s[index] != '\0')
-			index++;
-	}
-	return (wc);
-}
-
-static char		*ft_strncpy(char *dest, const char *src, size_t n)
-{
-	size_t index;
-
-	index = 0;
-	if (dest == NULL || src == NULL)
-		return (NULL);
-	while (index < n)
-	{
-		if (*src != '\0')
-		{
-			*dest = *src;
-		}
-		else
-			*dest = '\0';
+		if (s[index] == c && s[index + 1] != c && s[index + 1] != '\0')
+			count++;
 		index++;
-		src++;
-		dest++;
 	}
-	*dest = '\0';
-	dest -= index;
-	return (dest);
+	if (count == 1)
+		return (1);
+	return (count + 1);
 }
 
-static char		*ft_strndup(const char *s, size_t n)
+static char		*split_strings(char const **s, char c)
 {
+	size_t	index;
+	size_t	idx;
 	char	*str;
+	char	*string;
 
-	str = (char *)malloc(sizeof(char) * n + 1);
-	if (str == NULL)
+	str = (char*)*s;
+	index = 0;
+	while (str[index] != '\0' && str[index] != c)
+		index++;
+	idx = 0;
+	string = malloc(sizeof(char) * index + 1);
+	if (string == NULL)
 		return (NULL);
-	if (s == NULL)
-		return (NULL);
-	str = ft_strncpy(str, s, n);
-	return (str);
+	while (idx < index)
+	{
+		string[idx] = *str;
+		str++;
+		idx++;
+	}
+	string[idx] = '\0';
+	while (*str != '\0' && *str == c)
+		str++;
+	*s = str;
+	return (string);
+}
+
+static char		**clear_strings(char **strings, int index)
+{
+	int	idx;
+
+	idx = 0;
+	while (idx < (index - 1))
+	{
+		if (strings[idx] != NULL)
+			free(strings[idx]);
+		idx++;
+	}
+	free(strings);
+	return (NULL);
 }
 
 char			**ft_split(char const *s, char c)
 {
-	int				index;
-	int				start;
-	int				idx;
-	char			**strings;
+	char	**strings;
+	size_t	index;
+	size_t	idx;
 
-	index = 0;
+	if (s == NULL)
+		return (NULL);
+	while (*s == c && *s != '\0')
+		s++;
 	idx = 0;
-	strings = malloc(sizeof(char *) * (ft_wordcount(s, c)) + 1);
+	index = wordcount(s, c);
+	strings = malloc(sizeof(char*) * (index + 1));
 	if (strings == NULL)
 		return (NULL);
-	while (s[index] != '\0')
+	while (idx < index && *s != '\0')
 	{
-		while (s[index] == c)
-			index++;
-		start = index;
-		while (s[index] && s[index] != c)
-			index++;
-		if (index > start)
+		strings[idx] = split_strings(&s, c);
+		if (strings[idx] == NULL)
 		{
-			strings[idx] = ft_strndup(s + start, index - start);
-			idx++;
+			clear_strings(strings, index);
+			return (NULL);
 		}
+		idx++;
 	}
 	strings[idx] = NULL;
 	return (strings);
