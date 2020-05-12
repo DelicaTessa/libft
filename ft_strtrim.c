@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 13:33:22 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/06 11:00:56 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/11 15:54:59 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ static int		ltrim(char const *s1, const char *set)
 	if (s1 == NULL)
 		return (0);
 	while (start < len && ft_strchr(set, s1[start]) != NULL)
-	{
 		start++;
-	}
 	return (start);
 }
 
@@ -50,9 +48,7 @@ static int		rtrim(char const *s1, const char *set)
 	if (s1 == NULL)
 		return (0);
 	while (stop >= 0 && ft_strchr(set, s1[stop]) != NULL)
-	{
 		stop--;
-	}
 	return (stop);
 }
 

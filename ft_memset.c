@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/07 09:26:48 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/01 15:30:56 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/11 10:57:31 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	s = (unsigned char *)b;
 	while (len > 0)
 	{
-		s[len - 1] = c;
+		s[len - 1] = (unsigned char)c;
 		len--;
 	}
 	return (b);

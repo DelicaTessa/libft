@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/07 09:26:35 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/28 11:46:17 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/11 16:03:25 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	index = 0;
 	if (s == NULL)
-	{
 		return (NULL);
-	}
 	str = ft_strdup(s);
 	if (str == NULL)
 		return (NULL);

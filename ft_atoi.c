@@ -6,11 +6,9 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/14 14:03:52 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/08 11:56:56 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/11 16:48:41 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 static int	ft_skip(const char *str, int i)
 {

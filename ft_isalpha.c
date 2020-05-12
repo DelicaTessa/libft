@@ -6,11 +6,9 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/14 14:19:44 by tclement      #+#    #+#                 */
-/*   Updated: 2020/04/24 10:02:23 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/11 16:47:56 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isalpha(int arg)
 {

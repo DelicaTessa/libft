@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 13:34:22 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/09 10:10:08 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/11 15:48:20 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char			**ft_split(char const *s, char c)
 		s++;
 	idx = 0;
 	index = wordcount(s, c);
-	strings = malloc(sizeof(char*) * (index + 1));
+	strings = malloc(sizeof(char *) * (index + 1));
 	if (strings == NULL)
 		return (NULL);
 	while (idx < index && *s != '\0')

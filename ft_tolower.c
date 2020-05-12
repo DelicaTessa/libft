@@ -6,11 +6,9 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/14 15:40:48 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/04 18:49:33 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/11 16:02:31 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_tolower(int arg)
 {

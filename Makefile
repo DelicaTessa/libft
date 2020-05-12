@@ -6,7 +6,7 @@
 #    By: tclement <tclement@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/04/24 10:42:28 by tclement      #+#    #+#                  #
-#    Updated: 2020/05/06 15:13:05 by tclement      ########   odam.nl          #
+#    Updated: 2020/05/09 10:51:13 by tclement      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,7 @@ bonus: $(BONUS_OBJ)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
 	rm -f $(NAME)
