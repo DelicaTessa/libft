@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/06 14:09:15 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/11 10:44:34 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/12 11:18:30 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	t_list *next;
 
 	next = *lst;
-	if (*lst == NULL || del == NULL)
+	if (del == NULL)
 		return ;
 	while (next != NULL)
 	{
