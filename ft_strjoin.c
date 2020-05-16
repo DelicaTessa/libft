@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 13:31:44 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/11 10:28:59 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/13 20:36:59 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	counter = 0;
 	if ((s1 == NULL) || (s2 == NULL))
 		return (NULL);
-	new = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	new = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
 	if (new == NULL)
 		return (NULL);
 	while (s1[index] != '\0')

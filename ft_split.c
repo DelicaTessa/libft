@@ -6,19 +6,19 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 13:34:22 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/11 15:48:20 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/14 16:51:37 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		wordcount(const char *s, int c)
+static int		wordcount(const char *s, char c)
 {
-	int		index;
-	size_t	count;
+	int	index;
+	int	count;
 
-	count = 0;
 	index = 0;
+	count = 0;
 	while (s[index] != '\0')
 	{
 		if (s[index] == c && s[index + 1] != c && s[index + 1] != '\0')
@@ -32,8 +32,8 @@ static int		wordcount(const char *s, int c)
 
 static char		*split_strings(char const **s, char c)
 {
-	size_t	index;
-	size_t	idx;
+	int		index;
+	int		idx;
 	char	*str;
 	char	*string;
 
@@ -42,7 +42,7 @@ static char		*split_strings(char const **s, char c)
 	while (str[index] != '\0' && str[index] != c)
 		index++;
 	idx = 0;
-	string = malloc(sizeof(char) * index + 1);
+	string = ft_calloc(index + 1, sizeof(char));
 	if (string == NULL)
 		return (NULL);
 	while (idx < index)
@@ -58,16 +58,12 @@ static char		*split_strings(char const **s, char c)
 	return (string);
 }
 
-static char		**clear_strings(char **strings, int index)
+static char		**clear_strings(char **strings, int idx)
 {
-	int	idx;
-
-	idx = 0;
-	while (idx < (index - 1))
+	while (idx > 0)
 	{
-		if (strings[idx] != NULL)
-			free(strings[idx]);
-		idx++;
+		idx--;
+		free(strings[idx]);
 	}
 	free(strings);
 	return (NULL);
@@ -76,8 +72,8 @@ static char		**clear_strings(char **strings, int index)
 char			**ft_split(char const *s, char c)
 {
 	char	**strings;
-	size_t	index;
-	size_t	idx;
+	int		index;
+	int		idx;
 
 	if (s == NULL)
 		return (NULL);
@@ -85,7 +81,7 @@ char			**ft_split(char const *s, char c)
 		s++;
 	idx = 0;
 	index = wordcount(s, c);
-	strings = malloc(sizeof(char *) * (index + 1));
+	strings = ft_calloc(index + 1, sizeof(char *));
 	if (strings == NULL)
 		return (NULL);
 	while (idx < index && *s != '\0')

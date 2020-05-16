@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/07 09:26:15 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/01 15:27:17 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/16 12:44:31 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ void	ft_putstr_fd(char *s, int fd)
 
 	index = 0;
 	if (s == NULL)
-	{
 		return ;
-	}
 	while (s[index] != '\0')
 	{
 		ft_putchar_fd(s[index], fd);

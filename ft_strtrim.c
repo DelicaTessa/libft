@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 13:33:22 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/11 15:54:59 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/14 09:20:10 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ static int		ltrim(char const *s1, const char *set)
 
 	start = 0;
 	len = ft_strlen(s1);
-	if (s1 == NULL)
-		return (0);
 	while (start < len && ft_strchr(set, s1[start]) != NULL)
 		start++;
 	return (start);
@@ -45,8 +43,6 @@ static int		rtrim(char const *s1, const char *set)
 	int stop;
 
 	stop = ft_strlen(s1);
-	if (s1 == NULL)
-		return (0);
 	while (stop >= 0 && ft_strchr(set, s1[stop]) != NULL)
 		stop--;
 	return (stop);
@@ -60,7 +56,7 @@ static char		*copystring(char const *s1, int start, int stop)
 		return (NULL);
 	if (start > stop)
 		return (ft_strdup(""));
-	str = (char *)malloc((stop - start) + 2 * sizeof(char));
+	str = ft_calloc(stop - start + 2, sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	str = ft_strncpy(str, s1 + start, (stop - start) + 1);
