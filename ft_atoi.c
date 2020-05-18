@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/14 14:03:52 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/13 20:10:45 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/18 11:12:32 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_skip(const char *str, int i)
 
 int			ft_atoi(const char *str)
 {
-	unsigned long	value;
+	int				value;
 	int				i;
 	int				sign;
 
