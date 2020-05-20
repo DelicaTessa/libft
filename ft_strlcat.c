@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 10:19:47 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/13 20:40:43 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/19 11:16:32 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	len = 0;
 	index = 0;
+	if (dst == NULL && size == 0)
+		return (ft_strlen(src));
 	while (dst[len] != '\0' && len < size)
 	{
 		len++;

@@ -6,11 +6,12 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 13:33:22 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/14 09:20:10 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/20 10:58:51 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static char		*ft_strncpy(char *dest, const char *src, size_t n)
 {
@@ -52,8 +53,6 @@ static char		*copystring(char const *s1, int start, int stop)
 {
 	char *str;
 
-	if (s1 == NULL)
-		return (NULL);
 	if (start > stop)
 		return (ft_strdup(""));
 	str = ft_calloc(stop - start + 2, sizeof(char));
@@ -71,10 +70,20 @@ char			*ft_strtrim(char const *s1, char const *set)
 
 	if (s1 == NULL)
 		return (NULL);
+	if (set == NULL)
+		return ((char *)s1);
 	start = ltrim(s1, set);
 	stop = rtrim(s1, set);
 	str = copystring(s1, start, stop);
 	if (str == NULL)
 		return (NULL);
 	return (str);
+}
+
+int main(void)
+{
+	char s[] = "the quick brown fox jumped the dog";
+	char set[] = "the dog";
+	printf("%s", ft_strtrim(s, set));
+	return (0);
 }

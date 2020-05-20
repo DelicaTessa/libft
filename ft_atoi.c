@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/14 14:03:52 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/18 11:12:32 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/20 10:40:03 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			ft_atoi(const char *str)
 	sign = 1;
 	if (str[i] == '+' || str[i] == '-')
 	{
-		if (str[i] == 45)
+		if (str[i] == '-')
 			sign = -1;
 		i++;
 	}

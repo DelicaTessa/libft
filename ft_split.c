@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 13:34:22 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/14 16:51:37 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/19 10:28:30 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ static int		wordcount(const char *s, char c)
 			count++;
 		index++;
 	}
-	if (count == 1)
-		return (1);
 	return (count + 1);
 }
 
