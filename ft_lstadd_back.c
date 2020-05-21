@@ -6,11 +6,12 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/06 13:05:31 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/14 10:16:51 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/20 12:51:11 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
@@ -30,3 +31,19 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		last->next = new;
 	}
 }
+
+/*
+int main(void)
+{
+	t_list *head;
+	t_list *elem1;
+	t_list *elem2;
+
+	head = NULL;
+	elem1 = ft_lstnew("draak");
+	elem2 = ft_lstnew("donut");
+	ft_lstadd_back(&head, elem1);
+	printf("%s", head->content);
+	return (0);
+}
+*/

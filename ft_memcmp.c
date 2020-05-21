@@ -6,11 +6,12 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/18 13:40:01 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/11 12:12:09 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/20 12:18:59 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int			ft_memcmp(const void *s1, const void *s2, size_t n)
 {
@@ -29,3 +30,13 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
+
+/*
+int main(void)
+{
+	char s[] = "draak";
+	char d[] = "draak";
+	printf("%d", ft_memcmp(s, d, 3));
+	return (0);
+}
+*/

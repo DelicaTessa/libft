@@ -6,10 +6,11 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 10:27:48 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/13 20:54:15 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/20 12:16:55 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
 void	*ft_memmove(void *s1, const void *s2, size_t n)
@@ -33,3 +34,13 @@ void	*ft_memmove(void *s1, const void *s2, size_t n)
 	}
 	return ((char *)s1);
 }
+
+/*
+int main(void)
+{
+	char s[] = "draak";
+	char d[] = "eeee";
+	printf("%s", ft_memmove(s, d, 3));
+	return (0);
+}
+*/
