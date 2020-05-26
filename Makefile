@@ -6,84 +6,88 @@
 #    By: tclement <tclement@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/04/24 10:42:28 by tclement      #+#    #+#                  #
-#    Updated: 2020/05/20 10:48:39 by tclement      ########   odam.nl          #
+#    Updated: 2020/05/26 20:32:44 by tclement      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CC = gcc
+HEADER = libft.h
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Werror -Wextra
 
-SRC =   ft_memset.c \
-        ft_bzero.c \
-        ft_memcpy.c \
-        ft_memccpy.c \
-        ft_memmove.c \
-        ft_memchr.c \
-        ft_memcmp.c \
-        ft_strlen.c \
-        ft_strlcpy.c \
-		ft_strlcat.c \
-        ft_strchr.c \
-        ft_strrchr.c \
-        ft_strnstr.c \
-        ft_strncmp.c \
-        ft_atoi.c \
+SRC =	ft_atoi.c \
+		ft_bzero.c \
+		ft_calloc.c \
+		ft_isalnum.c \
+		ft_isalpha.c \
+		ft_isascii.c \
+		ft_isdigit.c \
+		ft_isprint.c \
 		ft_itoa.c \
-		ft_split.c \
-		ft_strmapi.c \
+		ft_memccpy.c \
+		ft_memchr.c \
+		ft_memcmp.c \
+		ft_memcpy.c \
+		ft_memmove.c \
+		ft_memset.c \
 		ft_putchar_fd.c \
 		ft_putendl_fd.c \
-		ft_putstr_fd.c \
 		ft_putnbr_fd.c \
-        ft_isalpha.c \
-        ft_isdigit.c \
-        ft_isalnum.c \
-        ft_isascii.c \
-        ft_isprint.c \
-        ft_toupper.c \
-        ft_tolower.c \
-        ft_calloc.c \
-        ft_strdup.c \
-        ft_substr.c \
-        ft_strjoin.c \
+		ft_putstr_fd.c \
+		ft_split.c \
+		ft_strchr.c \
+		ft_strdup.c \
+		ft_strjoin.c \
+		ft_strlcat.c \
+		ft_strlcpy.c \
+		ft_strlen.c \
+		ft_strmapi.c \
+		ft_strncmp.c \
+		ft_strnstr.c \
+		ft_strrchr.c \
 		ft_strtrim.c \
+		ft_substr.c \
+		ft_tolower.c \
+		ft_toupper.c \
 
-OBJ = $(SRC:.c=.o)
+SRC_O = $(SRC:.c=.o)
 
-BONUS = ft_lstnew.c \
+BONUS = ft_lstadd_back.c \
 		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
 		ft_lstdelone.c \
+		ft_lstlast.c \
+		ft_lstnew.c \
+		ft_lstsize.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
 
-BONUS_OBJ = $(BONUS:.c=.o)
+BONUS_O = $(BONUS:.c=.o)
 
-HEADER = libft.h
+ifdef WITH_BONUS
+	OBJ = $(SRC_O) $(BONUS_O)
+else
+	OBJ = $(SRC_O)
+endif
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $@ $^
 
-bonus: $(BONUS_OBJ)
-	ar rcs $(NAME) $^
+bonus:
+	$(MAKE) WITH_BONUS=1 all
 
 %.o: %.c $(HEADER)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 clean:
-	rm -f $(OBJ) $(BONUS_OBJ)
+	rm -f $(SRC_O) $(BONUS_O)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: fclean clean re bonus

@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/10 14:39:07 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/20 10:41:23 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/26 20:32:52 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 
 	index = 0;
 	srcsize = 0;
-	if (src == NULL || dst == NULL)
-		return (0);
 	while (src[srcsize] != '\0')
 		srcsize++;
 	if (dstsize > 0)

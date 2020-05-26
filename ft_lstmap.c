@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/06 14:57:24 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/21 10:24:37 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/21 16:00:14 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	del(void *content)
 	free (content);
 }
 */
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list *new;

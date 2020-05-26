@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 13:34:22 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/19 10:28:30 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/22 15:20:12 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char			**ft_split(char const *s, char c)
 		strings[idx] = split_strings(&s, c);
 		if (strings[idx] == NULL)
 		{
-			clear_strings(strings, index);
+			clear_strings(strings, idx);
 			return (NULL);
 		}
 		idx++;

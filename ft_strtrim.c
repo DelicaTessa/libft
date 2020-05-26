@@ -6,7 +6,7 @@
 /*   By: tclement <tclement@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/13 13:33:22 by tclement      #+#    #+#                 */
-/*   Updated: 2020/05/20 10:58:51 by tclement      ########   odam.nl         */
+/*   Updated: 2020/05/22 15:19:53 by tclement      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,4 @@ char			*ft_strtrim(char const *s1, char const *set)
 	if (str == NULL)
 		return (NULL);
 	return (str);
-}
-
-int main(void)
-{
-	char s[] = "the quick brown fox jumped the dog";
-	char set[] = "the dog";
-	printf("%s", ft_strtrim(s, set));
-	return (0);
 }
